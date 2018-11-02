@@ -1,7 +1,7 @@
-# Google Photos Import
+# GI Sync
 
 ## What is this?
-This is an attempt to import the photos I take with my Android phone, which uploads the photos to Google Photos, into iCloud Photos. Currently it is pretending to be an iOS application, but in the end I want this to run on both OSX and iOS.
+This is an attempt to import the photos I take with my Android phone, which uploads the photos to Google Photos, into iCloud Photos. Currently it is pretending to be an OSX application, but in the end I want this to run on both OSX and iOS.
 
 I also might give 'the other way around' a try.
 
@@ -20,9 +20,9 @@ Just the basic classes and requests for Google Photo are currently implemented. 
 - Interfaces for everything.
 
 ## Classes
-Classes for Google Photos are kept in the [GooglePhotosAPI](https://github.com/depl0y/GooglePhotosImport/tree/master/ImportPhotos/GooglePhotosAPI) folder in this repository. The following classes contain functionality to communicate with the Google Photos API. Other classes are there to make sure we get the full metadata from the API.
+Classes for Google Photos are kept in the [GooglePhotosAPI](https://github.com/depl0y/GI-Sync/tree/develop/GI%20Sync/GooglePhotosAPI) folder in this repository. The following classes contain functionality to communicate with the Google Photos API. Other classes are there to make sure we get the full metadata from the API.
 
-### [Album](https://github.com/depl0y/GooglePhotosImport/blob/master/ImportPhotos/GooglePhotosAPI/Album.swift)
+### [Album](https://github.com/depl0y/GI-Sync/blob/develop/GI%20Sync/GooglePhotosAPI/Album.swift)
 `Album` contains the following methods:
 
 - `list`: Gets a list of albums. (static)
@@ -30,7 +30,7 @@ Classes for Google Photos are kept in the [GooglePhotosAPI](https://github.com/d
 - `get`: Gets the metadata of a single album. (static)
 - `getMediaItems`: Gets the `MediaItem` objects for an album.
 
-### [MediaItem](https://github.com/depl0y/GooglePhotosImport/blob/master/ImportPhotos/GooglePhotosAPI/MediaItem.swift)
+### [MediaItem](https://github.com/depl0y/GI-Sync/blob/develop/GI%20Sync/GooglePhotosAPI/MediaItem.swift)
 `MediaItem` contains the following methods:
 
 - `list`: Gets a list of MediaItem objects. (static)
@@ -74,7 +74,6 @@ Album.listAll(completed: { (albums) in
 ## Dependencies
 
 Currently I use the following dependencies:
-- GoogleSignIn
 - Alamofire
 - AlamofireObjectMapper
 - ObjectMapper
@@ -83,4 +82,4 @@ Currently I use the following dependencies:
 - PureLayout
 - SwiftLint
 
-This list might not be up-to-date, but you can check out the [Podfile](https://github.com/depl0y/GooglePhotosImport/blob/master/Podfile) for a more recent list.
+This list might not be up-to-date, but you can check out the [Podfile](https://github.com/depl0y/GI-Sync/blob/develop/Podfile) for a more recent list.
