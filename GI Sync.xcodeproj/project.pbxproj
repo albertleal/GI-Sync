@@ -42,6 +42,7 @@
 		AB7A4B3A218CF71B00C682B9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B1C218CF71B00C682B9 /* DataManager.swift */; };
 		AB7A4B3B218CF71B00C682B9 /* IdMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B1D218CF71B00C682B9 /* IdMap.swift */; };
 		AB7A4B41218D7C3F00C682B9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */; };
+		AB7A4B46218E074500C682B9 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B45218E074500C682B9 /* AlbumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		AB7A4B1D218CF71B00C682B9 /* IdMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdMap.swift; sourceTree = "<group>"; };
 		AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AB7A4B44218D939300C682B9 /* GI Sync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GI Sync.entitlements"; sourceTree = "<group>"; };
+		AB7A4B45218E074500C682B9 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 		AB7A4B3F218D7C3F00C682B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB7A4B45218E074500C682B9 /* AlbumViewController.swift */,
 				AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */,
 			);
 			path = ViewControllers;
@@ -398,6 +401,7 @@
 				AB7A4B34218CF71B00C682B9 /* ContributorInfo.swift in Sources */,
 				AB7A4B32218CF71B00C682B9 /* Photo.swift in Sources */,
 				AB7A4B3B218CF71B00C682B9 /* IdMap.swift in Sources */,
+				AB7A4B46218E074500C682B9 /* AlbumViewController.swift in Sources */,
 				AB7A4B21218CF71B00C682B9 /* ErrorResponse.swift in Sources */,
 				AB7A4B1F218CF71B00C682B9 /* Results.swift in Sources */,
 				AB7A4B2D218CF71B00C682B9 /* AlbumsResponse.swift in Sources */,

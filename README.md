@@ -44,9 +44,8 @@ To use this project, you must create a file called `google_api.json` in the `GI 
 
 ```
 {
-    "client_id":"<Google client id>",
-    "client_secret": "<Google client secret>",
-    "redirect_url": "<Google client id reversed>:/oauthredirect"
+    "client_id": "<Google client id>",
+    "client_secret": "<Google client secret>"
 }
 ```
 

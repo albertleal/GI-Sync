@@ -16,10 +16,8 @@ class AuthenticationHelper {
 
     var clientId: String?
     var clientSecret: String?
-    var redirectUrl: String?
 
     private init() {
-        // _ = self.readConfigurationFile(filename: "google_api.json")
     }
 
     class func shared() -> AuthenticationHelper {
@@ -28,6 +26,16 @@ class AuthenticationHelper {
 
     public var currentAuthorizationFlow: OIDAuthorizationFlowSession?
     private var authorization: GTMAppAuthFetcherAuthorization?
+
+    var redirectURL: String? {
+        if let clientId = self.clientId {
+            var parts = clientId.split(separator: ".")
+            parts.reverse()
+            let result = parts.joined(separator: ".")
+            return "\(result):/oauthredirect"
+        }
+        return nil
+    }
 
     /// Storage authentication information, for later use
     ///
@@ -61,7 +69,6 @@ class AuthenticationHelper {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject> {
                     self.clientId = jsonResult["client_id"] as? String
                     self.clientSecret = jsonResult["client_secret"] as? String
-                    self.redirectUrl = jsonResult["redirect_url"] as? String
                 }
                 return true
             } catch {

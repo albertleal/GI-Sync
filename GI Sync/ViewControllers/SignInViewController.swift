@@ -18,6 +18,8 @@ class SigninViewController : NSViewController {
 
     override func viewDidLoad() {
         if AuthenticationHelper.shared().readConfigurationFile(filename: "google_api.json") {
+            log.verbose(AuthenticationHelper.shared().clientId)
+            log.verbose(AuthenticationHelper.shared().redirectURL)
             self.startAuth()
         }
     }
@@ -33,7 +35,7 @@ class SigninViewController : NSViewController {
             clientId: AuthenticationHelper.shared().clientId!,
             clientSecret: AuthenticationHelper.shared().clientSecret!,
             scopes: scopes,
-            redirectURL: URL(string: AuthenticationHelper.shared().redirectUrl!)!,
+            redirectURL: URL(string: AuthenticationHelper.shared().redirectURL!)!,
             responseType: OIDResponseTypeCode,
             additionalParameters: nil)
         
