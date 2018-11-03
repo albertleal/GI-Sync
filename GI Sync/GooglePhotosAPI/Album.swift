@@ -101,7 +101,7 @@ class Album: Mappable {
                 method: .post,
                 parameters: parameters,
                 encoding: JSONEncoding.default,
-                headers: AuthenticationHelper.authorizationHeader()).responseObject { (response: DataResponse<SearchResponse>) in
+                headers: AuthenticationHelper.shared().authorizationHeader()).responseObject { (response: DataResponse<SearchResponse>) in
 
                     if response.response?.statusCode == 200, let result = response.result.value {
                         self.appendMediaItems(items: result.mediaItems)
@@ -175,7 +175,7 @@ class Album: Mappable {
             url,
             method: .get,
             parameters: parameters,
-            headers: AuthenticationHelper.authorizationHeader()).responseObject { (response: DataResponse<AlbumsResponse>) in
+            headers: AuthenticationHelper.shared().authorizationHeader()).responseObject { (response: DataResponse<AlbumsResponse>) in
 
             if response.response?.statusCode == 200, let result = response.result.value {
                 completed(result)
@@ -233,7 +233,7 @@ class Album: Mappable {
 
         Alamofire.request(
             url,
-            headers: AuthenticationHelper.authorizationHeader()).responseObject { (response: DataResponse<Album>) in
+            headers: AuthenticationHelper.shared().authorizationHeader()).responseObject { (response: DataResponse<Album>) in
 
                 if response.response?.statusCode == 200, let result = response.result.value {
                     completed(result)

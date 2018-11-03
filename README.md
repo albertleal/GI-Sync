@@ -39,8 +39,18 @@ Classes for Google Photos are kept in the [GooglePhotosAPI](https://github.com/d
 - `search`: Perform a search over the MediaItem objects in the photo library. (static)
 - `download`: Download the image belonging to the MediaItem object.
 
-## Google API key
-To use this project, you must create a file called `google.apikey` in the `ImportPhotos` folder. This is a simple textfile, containing nothing more than your Google API key. This file is read on run-time and the key is used to configure Google Signin.
+## google_api.json
+To use this project, you must create a file called `google_api.json` in the `GI Sync` folder. This is a simple JSON file, containing the following information:
+
+```
+{
+    "client_id":"<Google client id>",
+    "client_secret": "<Google client secret>",
+    "redirect_url": "<Google client id reversed>:/oauthredirect"
+}
+```
+
+This file is read on run-time and the items are used to configure the Google signin process.
 
 ## Examples
 #### Search in `MediaItems` for selfies and animals.

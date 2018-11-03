@@ -9,4 +9,5 @@ target 'GI Sync' do
   pod 'RealmSwift'
   pod 'PureLayout'
   pod 'SwiftLint'
+  pod 'GTMAppAuth'
 end

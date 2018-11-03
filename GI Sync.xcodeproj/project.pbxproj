@@ -15,7 +15,7 @@
 		AB7A4B1F218CF71B00C682B9 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFA218CF71B00C682B9 /* Results.swift */; };
 		AB7A4B20218CF71B00C682B9 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFC218CF71B00C682B9 /* AuthenticationHelper.swift */; };
 		AB7A4B21218CF71B00C682B9 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFD218CF71B00C682B9 /* ErrorResponse.swift */; };
-		AB7A4B22218CF71B00C682B9 /* google.apikey in Resources */ = {isa = PBXBuildFile; fileRef = AB7A4AFE218CF71B00C682B9 /* google.apikey */; };
+		AB7A4B22218CF71B00C682B9 /* google_api.json in Resources */ = {isa = PBXBuildFile; fileRef = AB7A4AFE218CF71B00C682B9 /* google_api.json */; };
 		AB7A4B23218CF71B00C682B9 /* ContentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B01218CF71B00C682B9 /* ContentFilter.swift */; };
 		AB7A4B24218CF71B00C682B9 /* MediaTypeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B02218CF71B00C682B9 /* MediaTypeFilter.swift */; };
 		AB7A4B25218CF71B00C682B9 /* DateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B03218CF71B00C682B9 /* DateFilter.swift */; };
@@ -41,6 +41,7 @@
 		AB7A4B39218CF71B00C682B9 /* StringToInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B1A218CF71B00C682B9 /* StringToInt64.swift */; };
 		AB7A4B3A218CF71B00C682B9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B1C218CF71B00C682B9 /* DataManager.swift */; };
 		AB7A4B3B218CF71B00C682B9 /* IdMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B1D218CF71B00C682B9 /* IdMap.swift */; };
+		AB7A4B41218D7C3F00C682B9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,7 @@
 		AB7A4AFA218CF71B00C682B9 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		AB7A4AFC218CF71B00C682B9 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 		AB7A4AFD218CF71B00C682B9 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
-		AB7A4AFE218CF71B00C682B9 /* google.apikey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = google.apikey; sourceTree = "<group>"; };
+		AB7A4AFE218CF71B00C682B9 /* google_api.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = google_api.json; sourceTree = "<group>"; };
 		AB7A4B01218CF71B00C682B9 /* ContentFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentFilter.swift; sourceTree = "<group>"; };
 		AB7A4B02218CF71B00C682B9 /* MediaTypeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTypeFilter.swift; sourceTree = "<group>"; };
 		AB7A4B03218CF71B00C682B9 /* DateFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFilter.swift; sourceTree = "<group>"; };
@@ -83,6 +84,8 @@
 		AB7A4B1A218CF71B00C682B9 /* StringToInt64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToInt64.swift; sourceTree = "<group>"; };
 		AB7A4B1C218CF71B00C682B9 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		AB7A4B1D218CF71B00C682B9 /* IdMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdMap.swift; sourceTree = "<group>"; };
+		AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		AB7A4B44218D939300C682B9 /* GI Sync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GI Sync.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +138,14 @@
 		AB7A4AE9218CF68600C682B9 /* GI Sync */ = {
 			isa = PBXGroup;
 			children = (
+				AB7A4B44218D939300C682B9 /* GI Sync.entitlements */,
 				AB7A4AF8218CF71B00C682B9 /* Extensions */,
 				AB7A4AFF218CF71B00C682B9 /* GooglePhotosAPI */,
 				AB7A4AFB218CF71B00C682B9 /* Helper */,
 				AB7A4B1B218CF71B00C682B9 /* Realm */,
 				AB7A4B18218CF71B00C682B9 /* Transforms */,
-				AB7A4AFE218CF71B00C682B9 /* google.apikey */,
+				AB7A4B3F218D7C3F00C682B9 /* ViewControllers */,
+				AB7A4AFE218CF71B00C682B9 /* google_api.json */,
 				AB7A4AEA218CF68600C682B9 /* AppDelegate.swift */,
 				AB7A4AEC218CF68800C682B9 /* Assets.xcassets */,
 				AB7A4AEE218CF68800C682B9 /* MainMenu.xib */,
@@ -238,6 +243,14 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		AB7A4B3F218D7C3F00C682B9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +285,11 @@
 				TargetAttributes = {
 					AB7A4AE6218CF68600C682B9 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -299,7 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB7A4AED218CF68800C682B9 /* Assets.xcassets in Resources */,
-				AB7A4B22218CF71B00C682B9 /* google.apikey in Resources */,
+				AB7A4B22218CF71B00C682B9 /* google_api.json in Resources */,
 				AB7A4AF0218CF68800C682B9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +358,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GI Sync/Pods-GI Sync-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -352,6 +373,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -394,6 +418,7 @@
 				AB7A4B27218CF71B00C682B9 /* DateRangeObject.swift in Sources */,
 				AB7A4B2B218CF71B00C682B9 /* MediaItemsResponse.swift in Sources */,
 				AB7A4B2C218CF71B00C682B9 /* SearchResponse.swift in Sources */,
+				AB7A4B41218D7C3F00C682B9 /* SignInViewController.swift in Sources */,
 				AB7A4B28218CF71B00C682B9 /* MediaType.swift in Sources */,
 				AB7A4B31218CF71B00C682B9 /* MediaItem.swift in Sources */,
 				AB7A4B38218CF71B00C682B9 /* ContentCategoriesTransform.swift in Sources */,
@@ -537,9 +562,10 @@
 			baseConfigurationReference = 73D7BFD53D4C0385A9F00C95 /* Pods-GI Sync.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "GI Sync/GI_Sync.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VL6GQ32BN6;
 				INFOPLIST_FILE = "GI Sync/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,6 +573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sortedbits.GI-Sync";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -556,9 +583,10 @@
 			baseConfigurationReference = 84B7390D003B86678024E50C /* Pods-GI Sync.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "GI Sync/GI_Sync.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = VL6GQ32BN6;
 				INFOPLIST_FILE = "GI Sync/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,6 +594,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sortedbits.GI-Sync";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

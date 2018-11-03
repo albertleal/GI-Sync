@@ -3,6 +3,15 @@ PODS:
   - AlamofireObjectMapper (5.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.3)
+  - AppAuth (0.92.0)
+  - GTMAppAuth (0.7.0):
+    - AppAuth (~> 0.92.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.2.0):
+    - GTMSessionFetcher/Full (= 1.2.0)
+  - GTMSessionFetcher/Core (1.2.0)
+  - GTMSessionFetcher/Full (1.2.0):
+    - GTMSessionFetcher/Core (= 1.2.0)
   - ObjectMapper (3.3.0)
   - PureLayout (3.1.2)
   - Realm (3.8.0):
@@ -16,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - AlamofireObjectMapper (~> 5.0)
+  - GTMAppAuth
   - ObjectMapper (~> 3.3)
   - PureLayout
   - RealmSwift
@@ -26,6 +36,9 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireObjectMapper
+    - AppAuth
+    - GTMAppAuth
+    - GTMSessionFetcher
     - ObjectMapper
     - PureLayout
     - Realm
@@ -36,6 +49,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
+  AppAuth: 3f4f1d6d85ad631d0bbf15ffcdc10c447face97a
+  GTMAppAuth: 8d724be29ab8f2f6d35b2bf929d76340c9d1f1b1
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PureLayout: 4634d0b61e3b5021166e8ec7c18e9e0ca0720c8b
   Realm: 3fdae59de78838064e9f77638d7cdb7b8cff9dc8
@@ -43,6 +59,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
 
-PODFILE CHECKSUM: f0e752cae7e9d29f230f1f7087e0ca4762783335
+PODFILE CHECKSUM: b49028dee59c1387644018f8daa1a88475b2fc0f
 
 COCOAPODS: 1.5.3
