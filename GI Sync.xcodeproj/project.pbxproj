@@ -13,7 +13,7 @@
 		AB7A4AF0218CF68800C682B9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB7A4AEE218CF68800C682B9 /* MainMenu.xib */; };
 		AB7A4B1E218CF71B00C682B9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AF9218CF71B00C682B9 /* Date.swift */; };
 		AB7A4B1F218CF71B00C682B9 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFA218CF71B00C682B9 /* Results.swift */; };
-		AB7A4B20218CF71B00C682B9 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFC218CF71B00C682B9 /* AuthenticationHelper.swift */; };
+		AB7A4B20218CF71B00C682B9 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFC218CF71B00C682B9 /* AuthenticationManager.swift */; };
 		AB7A4B21218CF71B00C682B9 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4AFD218CF71B00C682B9 /* ErrorResponse.swift */; };
 		AB7A4B22218CF71B00C682B9 /* google_api.json in Resources */ = {isa = PBXBuildFile; fileRef = AB7A4AFE218CF71B00C682B9 /* google_api.json */; };
 		AB7A4B23218CF71B00C682B9 /* ContentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B01218CF71B00C682B9 /* ContentFilter.swift */; };
@@ -43,6 +43,7 @@
 		AB7A4B3B218CF71B00C682B9 /* IdMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B1D218CF71B00C682B9 /* IdMap.swift */; };
 		AB7A4B41218D7C3F00C682B9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */; };
 		AB7A4B46218E074500C682B9 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B45218E074500C682B9 /* AlbumViewController.swift */; };
+		AB7A4B49218EC58800C682B9 /* SignInNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A4B48218EC58800C682B9 /* SignInNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,7 @@
 		AB7A4AF2218CF68800C682B9 /* GI_Sync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GI_Sync.entitlements; sourceTree = "<group>"; };
 		AB7A4AF9218CF71B00C682B9 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		AB7A4AFA218CF71B00C682B9 /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
-		AB7A4AFC218CF71B00C682B9 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
+		AB7A4AFC218CF71B00C682B9 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		AB7A4AFD218CF71B00C682B9 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		AB7A4AFE218CF71B00C682B9 /* google_api.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = google_api.json; sourceTree = "<group>"; };
 		AB7A4B01218CF71B00C682B9 /* ContentFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentFilter.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AB7A4B44218D939300C682B9 /* GI Sync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GI Sync.entitlements"; sourceTree = "<group>"; };
 		AB7A4B45218E074500C682B9 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		AB7A4B48218EC58800C682B9 /* SignInNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				AB7A4B1B218CF71B00C682B9 /* Realm */,
 				AB7A4B18218CF71B00C682B9 /* Transforms */,
 				AB7A4B3F218D7C3F00C682B9 /* ViewControllers */,
+				AB7A4B47218EC56D00C682B9 /* Views */,
 				AB7A4AFE218CF71B00C682B9 /* google_api.json */,
 				AB7A4AEA218CF68600C682B9 /* AppDelegate.swift */,
 				AB7A4AEC218CF68800C682B9 /* Assets.xcassets */,
@@ -169,7 +172,7 @@
 		AB7A4AFB218CF71B00C682B9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				AB7A4AFC218CF71B00C682B9 /* AuthenticationHelper.swift */,
+				AB7A4AFC218CF71B00C682B9 /* AuthenticationManager.swift */,
 				AB7A4AFD218CF71B00C682B9 /* ErrorResponse.swift */,
 			);
 			path = Helper;
@@ -252,6 +255,14 @@
 				AB7A4B40218D7C3F00C682B9 /* SignInViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AB7A4B47218EC56D00C682B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB7A4B48218EC58800C682B9 /* SignInNotification.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,13 +419,14 @@
 				AB7A4B37218CF71B00C682B9 /* SharedAlbumOptions.swift in Sources */,
 				AB7A4B2E218CF71B00C682B9 /* FileListResponse.swift in Sources */,
 				AB7A4B30218CF71B00C682B9 /* MediaMetadata.swift in Sources */,
-				AB7A4B20218CF71B00C682B9 /* AuthenticationHelper.swift in Sources */,
+				AB7A4B20218CF71B00C682B9 /* AuthenticationManager.swift in Sources */,
 				AB7A4B2F218CF71B00C682B9 /* Album.swift in Sources */,
 				AB7A4B35218CF71B00C682B9 /* Filters.swift in Sources */,
 				AB7A4B23218CF71B00C682B9 /* ContentFilter.swift in Sources */,
 				AB7A4B33218CF71B00C682B9 /* File.swift in Sources */,
 				AB7A4B39218CF71B00C682B9 /* StringToInt64.swift in Sources */,
 				AB7A4B29218CF71B00C682B9 /* DateObject.swift in Sources */,
+				AB7A4B49218EC58800C682B9 /* SignInNotification.swift in Sources */,
 				AB7A4B26218CF71B00C682B9 /* ContentCategory.swift in Sources */,
 				AB7A4B24218CF71B00C682B9 /* MediaTypeFilter.swift in Sources */,
 				AB7A4AEB218CF68600C682B9 /* AppDelegate.swift in Sources */,

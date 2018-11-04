@@ -67,7 +67,7 @@ class MediaItem: Mappable {
 
             Alamofire.request(
                 fullSizeUrl,
-                headers: AuthenticationHelper.shared().authorizationHeader()).responseData { (response: DataResponse<Data>) in
+                headers: AuthenticationManager.shared().authorizationHeader()).responseData { (response: DataResponse<Data>) in
 
                 if response.response?.statusCode == 200, let result = response.result.value, let image = NSImage(data: result) {
                     completed(image)
@@ -107,7 +107,7 @@ class MediaItem: Mappable {
             url,
             method: .get,
             parameters: parameters,
-            headers: AuthenticationHelper.shared().authorizationHeader()).responseObject { (response: DataResponse<MediaItemsResponse>) in
+            headers: AuthenticationManager.shared().authorizationHeader()).responseObject { (response: DataResponse<MediaItemsResponse>) in
 
             if response.response?.statusCode == 200, let result = response.result.value {
                 completed(result)
@@ -169,7 +169,7 @@ class MediaItem: Mappable {
 
         Alamofire.request(
             url,
-            headers: AuthenticationHelper.shared().authorizationHeader()).responseObject { (response: DataResponse<MediaItem>) in
+            headers: AuthenticationManager.shared().authorizationHeader()).responseObject { (response: DataResponse<MediaItem>) in
             if response.response?.statusCode == 200, let result = response.result.value {
                 completed(result)
             } else {
@@ -207,7 +207,7 @@ class MediaItem: Mappable {
             method: .post,
             parameters: parameters,
             encoding: JSONEncoding.default,
-            headers: AuthenticationHelper.shared().authorizationHeader()).responseObject { (response: DataResponse<SearchResponse>) in
+            headers: AuthenticationManager.shared().authorizationHeader()).responseObject { (response: DataResponse<SearchResponse>) in
                 if response.response?.statusCode == 200, let searchResponse = response.result.value {
                     completed(searchResponse)
                 } else {

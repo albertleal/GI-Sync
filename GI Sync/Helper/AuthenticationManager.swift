@@ -8,9 +8,9 @@ import Foundation
 import Alamofire
 import GTMAppAuth
 
-class AuthenticationHelper {
-    private static var sharedAuthenticationHelper: AuthenticationHelper = {
-        let manager = AuthenticationHelper()
+class AuthenticationManager {
+    private static var sharedAuthenticationManager: AuthenticationManager = {
+        let manager = AuthenticationManager()
         return manager
     }()
 
@@ -18,10 +18,11 @@ class AuthenticationHelper {
     var clientSecret: String?
 
     private init() {
+        self.loadState()
     }
 
-    class func shared() -> AuthenticationHelper {
-        return self.sharedAuthenticationHelper
+    class func shared() -> AuthenticationManager {
+        return self.sharedAuthenticationManager
     }
 
     public var currentAuthorizationFlow: OIDAuthorizationFlowSession?
@@ -37,22 +38,44 @@ class AuthenticationHelper {
         return nil
     }
 
+    var accessToken: String? {
+        return self.authorization?.authState.lastTokenResponse?.accessToken
+    }
+
+    func saveState() {
+        if let authorize = self.authorization, authorize.canAuthorize() {
+            GTMAppAuthFetcherAuthorization.save(authorize, toKeychainForName: "authorization")
+        } else {
+            GTMAppAuthFetcherAuthorization.removeFromKeychain(forName: "authorization")
+        }
+    }
+
+    func loadState() {
+        let authorization = GTMAppAuthFetcherAuthorization(fromKeychainForName: "authorization")
+        self.setAuthorization(auth: authorization)
+    }
+
+    func canAuthorize() -> Bool {
+        if let authorize = self.authorization, authorize.canAuthorize() {
+            return true
+        } else {
+            return false
+        }
+    }
+
     /// Storage authentication information, for later use
     ///
     /// - Parameter auth: The authentication information retrieved from Google OAuth endpoint
     func setAuthorization(auth: GTMAppAuthFetcherAuthorization?) {
         self.authorization = auth
-
-        if let accessToken = self.authorization?.authState.lastTokenResponse?.accessToken {
-            log.verbose("Got an access token! \(accessToken)")
-        }
+        self.saveState()
     }
 
     /// Creates a header with the current OAuth access token from Google
     ///
     /// - Returns: A HTTPHeaders object, containing an Authorization header
     func authorizationHeader() -> HTTPHeaders {
-        if let accessToken = self.authorization?.authState.lastTokenResponse?.accessToken {
+        if let accessToken = self.accessToken {
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer " + accessToken
             ]

@@ -17,10 +17,13 @@ class SigninViewController : NSViewController {
     }
 
     override func viewDidLoad() {
-        if AuthenticationHelper.shared().readConfigurationFile(filename: "google_api.json") {
-            log.verbose(AuthenticationHelper.shared().clientId)
-            log.verbose(AuthenticationHelper.shared().redirectURL)
-            self.startAuth()
+        if AuthenticationManager.shared().readConfigurationFile(filename: "google_api.json") {
+            if !AuthenticationManager.shared().canAuthorize() {
+                self.startAuth()
+            } else {
+                log.verbose("Already have an access token \(AuthenticationManager.shared().accessToken)")
+                self.listAlbums()
+            }
         }
     }
 
@@ -32,22 +35,24 @@ class SigninViewController : NSViewController {
 
         let request = OIDAuthorizationRequest(
             configuration: configuration,
-            clientId: AuthenticationHelper.shared().clientId!,
-            clientSecret: AuthenticationHelper.shared().clientSecret!,
+            clientId: AuthenticationManager.shared().clientId!,
+            clientSecret: AuthenticationManager.shared().clientSecret!,
             scopes: scopes,
-            redirectURL: URL(string: AuthenticationHelper.shared().redirectURL!)!,
+            redirectURL: URL(string: AuthenticationManager.shared().redirectURL!)!,
             responseType: OIDResponseTypeCode,
             additionalParameters: nil)
         
-        AuthenticationHelper.shared().currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, callback: { (authState, error) in
+        AuthenticationManager.shared().currentAuthorizationFlow = OIDAuthState.authState(byPresenting: request, callback: { (authState, error) in
             if let state = authState {
                 let authorization = GTMAppAuthFetcherAuthorization(authState: state)
-                AuthenticationHelper.shared().setAuthorization(auth: authorization)
+                AuthenticationManager.shared().setAuthorization(auth: authorization)
 
                 self.listAlbums()
             } else {
-                AuthenticationHelper.shared().setAuthorization(auth: nil)
-                log.error(error)
+                AuthenticationManager.shared().setAuthorization(auth: nil)
+                if let responseError = error {
+                    log.error(responseError)
+                }
             }
         })
     }

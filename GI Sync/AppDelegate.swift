@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func handleUrlEvent(_ event: NSAppleEventDescriptor, with replyEvent: NSAppleEventDescriptor) {
         if let urlString = event.paramDescriptor(forKeyword: keyDirectObject)?.stringValue,
             let url = URL(string: urlString),
-            let authorizationFlow = AuthenticationHelper.shared().currentAuthorizationFlow
+            let authorizationFlow = AuthenticationManager.shared().currentAuthorizationFlow
         {
             authorizationFlow.resumeAuthorizationFlow(with: url)
         }
