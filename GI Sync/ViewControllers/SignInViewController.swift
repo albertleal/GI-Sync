@@ -9,11 +9,15 @@
 import Foundation
 import AppKit
 import GTMAppAuth
+import PureLayout
 
 class SigninViewController : NSViewController {
 
+    var signinNotification = SignInNotificationView(forAutoLayout: ())
+
     override func loadView() {
         self.view = NSView()
+
     }
 
     override func viewDidLoad() {
@@ -21,10 +25,13 @@ class SigninViewController : NSViewController {
             if !AuthenticationManager.shared().canAuthorize() {
                 self.startAuth()
             } else {
-                log.verbose("Already have an access token \(AuthenticationManager.shared().accessToken)")
                 self.listAlbums()
             }
         }
+
+        self.view.addSubview(self.signinNotification)
+        self.signinNotification.autoPinEdgesToSuperviewEdges(with: NSEdgeInsetsZero, excludingEdge: .bottom)
+        self.signinNotification.autoSetDimension(.height, toSize: 44)
     }
 
     func startAuth() {

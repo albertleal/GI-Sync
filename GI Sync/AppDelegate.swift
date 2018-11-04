@@ -20,7 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_ notification: Notification) {
         let console = ConsoleDestination()
         log.addDestination(console)
-        log.verbose("Setting up NSAppleEventManager")
 
         NSAppleEventManager.shared().setEventHandler(
             self,
@@ -31,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let viewController = SigninViewController(nibName: nil, bundle: nil)
-        self.window = NSWindow(contentViewController: viewController)
+        self.window.contentView = viewController.view
         self.window.makeKeyAndOrderFront(self)
     }
 

@@ -14,9 +14,6 @@ class AuthenticationManager {
         return manager
     }()
 
-    var clientId: String?
-    var clientSecret: String?
-
     private init() {
         self.loadState()
     }
@@ -25,9 +22,17 @@ class AuthenticationManager {
         return self.sharedAuthenticationManager
     }
 
-    public var currentAuthorizationFlow: OIDAuthorizationFlowSession?
-    private var authorization: GTMAppAuthFetcherAuthorization?
+    public var authorization: GTMAppAuthFetcherAuthorization?
 
+    public var currentAuthorizationFlow: OIDAuthorizationFlowSession?
+
+    /// ClientId for Google API
+    public var clientId: String?
+
+    /// Client secret for Google API
+    public var clientSecret: String?
+
+    /// Redirect URL for Google API, client ID reversed with :/oauthredirect appended
     var redirectURL: String? {
         if let clientId = self.clientId {
             var parts = clientId.split(separator: ".")
@@ -38,29 +43,40 @@ class AuthenticationManager {
         return nil
     }
 
+    /// Current access token, when available
     var accessToken: String? {
         return self.authorization?.authState.lastTokenResponse?.accessToken
     }
 
+    /// Store the current authentication state in the keychain
     func saveState() {
         if let authorize = self.authorization, authorize.canAuthorize() {
+            GTMAppAuthFetcherAuthorization.removeFromKeychain(forName: "authorization")
             GTMAppAuthFetcherAuthorization.save(authorize, toKeychainForName: "authorization")
         } else {
             GTMAppAuthFetcherAuthorization.removeFromKeychain(forName: "authorization")
         }
     }
 
+    /// Load the previous authentication state from the keychain
     func loadState() {
         let authorization = GTMAppAuthFetcherAuthorization(fromKeychainForName: "authorization")
         self.setAuthorization(auth: authorization)
     }
 
+    /// Check if currently stored authentication info is valid
+    ///
+    /// - Returns: True when it should work, false otherwise
     func canAuthorize() -> Bool {
-        if let authorize = self.authorization, authorize.canAuthorize() {
+        if let authorize = self.authorization,
+            let expireDate = authorize.authState.lastTokenResponse?.accessTokenExpirationDate,
+            authorize.canAuthorize(),
+            expireDate > Date() {
+
             return true
-        } else {
-            return false
+
         }
+        return false
     }
 
     /// Storage authentication information, for later use
@@ -85,6 +101,11 @@ class AuthenticationManager {
         }
     }
 
+    /// Reads Google API configuration from a JSON file
+    /// expects client_id and client_secret in the JSON object
+    ///
+    /// - Parameter filename: The filename to load
+    /// - Returns: True if loading went fine, otherwise false
     func readConfigurationFile(filename: String) -> Bool {
         if let path = Bundle.main.path(forResource: filename, ofType: nil) {
             do {
@@ -102,17 +123,5 @@ class AuthenticationManager {
             log.error("Could not initialize with file '\(filename)', file exists?")
             return false
         }
-    }
-
-    func googleKeyFromFile() -> String {
-        do {
-            if let url = Bundle.main.url(forResource: "google.apikey", withExtension: nil) {
-                let key = try String(contentsOf: url, encoding: .utf8).trimmingCharacters(in: .whitespacesAndNewlines)
-                return key
-            }
-        } catch {
-        }
-        log.error("Could not get Google API key, make sure 'google.apikey' exists and contains your Google API key")
-        return ""
     }
 }
